@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vueBasicoTaller</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" type="module" defer></script>
+</head>
+<body>
+    <div id="app">
+        <h1>lectura de datos</h1>
+        <form v-else>
+            <div>
+                    <input type="text" v-model="ingresoDato" >
+                    <button  @click.prevent="enviar"> enviar</button>
+            </div>
+
+            <div >
+                <p >objeto</p>
+                    <li v-for="(ma,m) in dato" v-model="m"><button  @click.prevent="eliminar(m)" >x</button>{{ma.dato}} </li>
+            </div>
+            <br>
+            <div>
+                    <p>array</p>
+                    <li v-for="(dato,indice) of dato">{{dato}}</li>
+                
+            </div>
+            <button @click.prevent="eliminarprimero">eliminar elemento uno</button>
+            <button @click.prevent="eliminarelultimoelemento">eliminar elemento ultimo</button>
+            <br><br>
+            <!-- <form >
+                <input type="text" v-model="DatoEliminarCualquier" >
+                <button  @click.prevent="eliminarcualquierelemento"  >eliminar cualquier elemento </button>
+            </form>
+            <br><br> -->
+            <input type="text" v-model="AgregarUno" >
+            <button @click.prevent="agregarprincipio">agregar elemento uno</button>
+            <br><br>
+            <input type="text" v-model="AgregarFin" >
+            <button @click.prevent="agregarfinnal">agregar elemento fin</button>    
+            <br><br>
+            <button @click.prevent="mapeo">Mapeo</button>
+            <ul>
+                <li v-for="(dato,indice) of dato">{{indice}} {{dato.dato}}
+
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+</html>
